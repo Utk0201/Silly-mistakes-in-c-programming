@@ -19,5 +19,5 @@ Above code gives error
 
 Reason:
  
-We can't hast from a pair to any quantity in c++
+We can't hash from a pair to any quantity in c++
 */
