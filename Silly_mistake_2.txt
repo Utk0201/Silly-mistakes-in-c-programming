@@ -1,0 +1,28 @@
+#include <iostream>
+#include <unordered_set>
+using namespace std;
+#define ll long long int
+int main()
+{
+    unordered_set<unordered_set<ll>> output;
+    return 0;
+}
+
+//	Above code gives error 
+
+#include <iostream>
+#include <unordered_set>
+using namespace std;
+#define ll long long int
+int main()
+{
+    unordered_set<unordered_set<ll>*>* output=new unordered_set<unordered_set<ll>*>();
+    return 0;
+}
+
+//	But this one doesn't
+
+Conclusion:
+
+- Try to hash using pointers while creating set of set 
+
