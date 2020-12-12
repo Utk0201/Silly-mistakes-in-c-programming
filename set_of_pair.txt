@@ -33,7 +33,7 @@ int main()
 //	https://www.interviewbit.com/problems/3-sum-zero/
 //	The solution to the above problem is very similar to the code written on gfg under method 3 (https://www.geeksforgeeks.org/find-triplets-array-whose-sum-equal-zero/)
 //  However, the gfg code also prints duplicate triplets.
-//	This gfg code can be slightly modified and the code below works perfectly fine in this problem (https://www.interviewbit.com/problems/3-sum-zero/)
+//	This gfg code can be slightly modified using set of pair and the code below works perfectly fine in this problem (https://www.interviewbit.com/problems/3-sum-zero/)
 
 #define ll long long int
 vector<vector<int> > Solution::threeSum(vector<int> &arr) {
