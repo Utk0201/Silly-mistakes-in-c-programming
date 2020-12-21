@@ -1,0 +1,36 @@
+// converting string to long and vice versa
+
+These small functions might be familiar to most of you but still, we'll explore these functions taking edge cases into consideration.
+
+Occasionally, some questions reqiure you to do some operation on the DIGITS of a given number and subsequently modify the number also.
+However, there's no data structure in c++ to allow doing both of them simultaneously.
+But, there are some functions useful in these cases. Let's say you have to work on a number less than 10^18 (fits in long long int) then,
+
+long long int n= 12345678987654321;
+    cout<<"n= "<<n<<endl;
+string s=to_string(n);
+    cout<<"s= "<<s<<endl;
+
+boht n and s print the same number. Let's think about the opposite,i.e, converting string to long long int. 
+One might think of using atoi (for string to int) or atol (for string to long long int). But, both of them don't work for numbers >= 10^10
+
+In this situation, we need to devise our own function. The function below may cater to our needs :
+
+ll s2l(string s){
+    ll ans=0,cur=0;
+    while(cur<s.size()){
+        ans*=10;
+        ans+=(s[cur]-'0');
+        cur++;
+    }
+    return ans;
+}
+
+ll n=999999999999;
+    cout<<"n= "<<n<<endl;
+string s=to_string(n);
+    cout<<"s= "<<s<<endl;
+ll m=s2l(&s[0]);
+    cout<<"m= "<<m<<endl; 
+
+Now, all the three outputs are same!!!
