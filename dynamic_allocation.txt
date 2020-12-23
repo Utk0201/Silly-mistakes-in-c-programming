@@ -1,4 +1,4 @@
-Today we'll discuss one of the most important issue which you might have haved while studying graphs. Let's say we have the following snippet:
+Today we'll discuss one of the most important issue which you might have experienced while studying graphs. Let's say we have the following snippet:
 
 //////////////////////////////////////////////////////////////////////////////////////////
 #include <bits/stdc++.h>
