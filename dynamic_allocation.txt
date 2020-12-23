@@ -1,0 +1,141 @@
+Today we'll discuss one of the most important issue which you might have haved while studying graphs. Let's say we have the following snippet:
+
+//////////////////////////////////////////////////////////////////////////////////////////
+#include <bits/stdc++.h>
+using namespace std;
+
+#define ll long long int
+
+int main()
+{
+    vector<vector<ll>*>* output;
+    vector<ll> *v1=new vector<ll>();
+    v1->push_back(1);
+    v1->push_back(2);
+    v1->push_back(3);
+    v1->push_back(4);
+    vector<ll> *v2=new vector<ll>();
+    v2->push_back(11);
+    v2->push_back(22);
+    v2->push_back(33);
+    v2->push_back(44);
+    vector<ll> *v3=new vector<ll>();
+    v3->push_back(111);
+    v3->push_back(222);
+    v3->push_back(333);
+    v3->push_back(444);
+    output->push_back(v1);
+    output->push_back(v2);
+    output->push_back(v3);
+    return 0;
+}
+//////////////////////////////////////////////////////////////////////////////////////////
+
+At the first instance, it seems fine . "output" is a pointer, so we use an arrow. It is storing vector<ll>* . Our input, i.e, v1,v2 and v3 are vector<ll>* . But on compilation, we'll 
+get an error. Let's see why.
+
+First of all, "output" is a pointer. A pointer stores an address of the quantity it is pointing at (vector<vector<int>*> in this case). So, where did we assign space for vector<ll>* and
+its elements to be stored???
+That's the problem. The solution is very simple. Just allocate some space where vector<ll>* can be stored as done in the following code:
+
+//////////////////////////////////////////////////////////////////////////////////////////
+#include <bits/stdc++.h>
+using namespace std;
+
+#define ll long long int
+
+int main()
+{
+    vector<vector<ll>*>* output=new vector<vector<ll>*>();
+    vector<ll> *v1=new vector<ll>();
+    v1->push_back(1);
+    v1->push_back(2);
+    v1->push_back(3);
+    v1->push_back(4);
+    vector<ll> *v2=new vector<ll>();
+    v2->push_back(11);
+    v2->push_back(22);
+    v2->push_back(33);
+    v2->push_back(44);
+    vector<ll> *v3=new vector<ll>();
+    v3->push_back(111);
+    v3->push_back(222);
+    v3->push_back(333);
+    v3->push_back(444);
+    output->push_back(v1);
+    output->push_back(v2);
+    output->push_back(v3);
+    return 0;
+}
+//////////////////////////////////////////////////////////////////////////////////////////
+
+Above code compiles perfectly. Now, let's try to do something else. Let's access 2nd element of output (i.e., address of v2). Is the following code ok?
+
+//////////////////////////////////////////////////////////////////////////////////////////
+#include <bits/stdc++.h>
+using namespace std;
+
+#define ll long long int
+
+int main()
+{
+    vector<vector<ll>*>* output=new vector<vector<ll>*>();
+    vector<ll> *v1=new vector<ll>();
+    v1->push_back(1);
+    v1->push_back(2);
+    v1->push_back(3);
+    v1->push_back(4);
+    vector<ll> *v2=new vector<ll>();
+    v2->push_back(11);
+    v2->push_back(22);
+    v2->push_back(33);
+    v2->push_back(44);
+    vector<ll> *v3=new vector<ll>();
+    v3->push_back(111);
+    v3->push_back(222);
+    v3->push_back(333);
+    v3->push_back(444);
+    output->push_back(v1);
+    output->push_back(v2);
+    output->push_back(v3);
+    vector<ll>* small=output[1];  
+    return 0;
+}
+//////////////////////////////////////////////////////////////////////////////////////////
+
+In case of dynamic allocation of vectors, instead of square brackets, we use ->at(i) if ith index has to be accesssed. The following code works perfectly fine:
+
+//////////////////////////////////////////////////////////////////////////////////////////
+#include <bits/stdc++.h>
+using namespace std;
+
+#define ll long long int
+
+int main()
+{
+    vector<vector<ll>*>* output=new vector<vector<ll>*>();
+    vector<ll> *v1=new vector<ll>();
+    v1->push_back(1);
+    v1->push_back(2);
+    v1->push_back(3);
+    v1->push_back(4);
+    vector<ll> *v2=new vector<ll>();
+    v2->push_back(11);
+    v2->push_back(22);
+    v2->push_back(33);
+    v2->push_back(44);
+    vector<ll> *v3=new vector<ll>();
+    v3->push_back(111);
+    v3->push_back(222);
+    v3->push_back(333);
+    v3->push_back(444);
+    output->push_back(v1);
+    output->push_back(v2);
+    output->push_back(v3);
+    vector<ll>* small=output->at(1);  
+    return 0;
+}
+//////////////////////////////////////////////////////////////////////////////////////////
+
+
+
